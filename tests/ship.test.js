@@ -42,7 +42,7 @@ describe("Tests for isSunk method of ship class",()=>{
         let newShip = new Ship(4);
         newShip.hit();
         newShip.hit();
-       
+
         expect(newShip.isSunk).toBe(false)
     })
 })
