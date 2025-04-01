@@ -1,18 +1,21 @@
 class Ship {
-    constructor(length) {
-        this.length = length;  // Ship size
-        this.hitCount = 0;      // Tracks the number of hits
-    }
+  length;
+  #hitCount;
 
-    hit() {
-        if (this.hitCount < this.length) {
-            this.hitCount += 1;
-        }
-    }
+  constructor(length) {
+    this.length = length;
+    this.#hitCount = 0;
+  }
 
-    get isSunk() {   //getter
-        return this.hitCount >= this.length;
+  hit() {
+    if (this.#hitCount < this.length) {
+      this.#hitCount += 1;
     }
+  }
+
+  get isSunk() {
+    return this.#hitCount >= this.length;
+  }
 }
 
 export { Ship };
