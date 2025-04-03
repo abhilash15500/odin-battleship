@@ -1,4 +1,90 @@
 /* styles.css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 body {
-  background-color: tomato;
+  
+  background-color: #8d99ae
+
+  
+}
+
+
+/* 2b2d42 darker colour for  #8d99ae;*/
+
+
+#battleship-heading {
+  text-align: center;
+  padding: 3%;
+
+}
+
+#gameboard-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7vw;
+  margin: 0px;
+}
+
+#player-gameboard,
+#cpu-gameboard {
+  
+  border: 5px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 30vw;
+  height: 55vh;
+  padding: 1px;
+  justify-items: center;
+  align-items: center;
+
+}
+
+
+.grid-cells {
+  border: 1px solid black;
+  width: 96%;
+  height: 96%;
+  
+
+}
+
+.red {
+  background-color: #D2042D;
+}
+
+.blue {
+  background-color: rgb(21, 97, 126);
+}
+
+#buttons-div {
+  display:  flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 20vw;
+  height: 5vh;
+  margin: auto;
+  padding: 10px;
+  gap: 10px;
+}
+
+.fa-robot,.fa-user-circle {
+  font-size: 5vw ;/* Adjust size */
+  margin:auto;
+ 
+}
+
+.fa-user-circle  {
+  margin-left: 5vw;
+}
+
+.fa-robot {
+  margin-right: 5vw;
 }

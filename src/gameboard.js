@@ -14,6 +14,7 @@ class Gameboard {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ];
+    
     this.ships = this.#createShips();
     this.missedAttacks = [];
   }
@@ -70,6 +71,8 @@ class Gameboard {
     return [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
   }
 
+
+  
   horizontalOrVerticalShipPlacement() {
     return Math.random() < 0.5 ? "vertical" : "horizontal";
   }
@@ -87,6 +90,8 @@ class Gameboard {
           randomCoords = this.#getRandomXandYCoords();
           continue; // retry other values
         }
+
+       
 
         for (let i = 0; i < marker; i++) {
           array.push(this.board[xIndex][randomCoords[1]]);
@@ -110,6 +115,8 @@ class Gameboard {
           randomCoords = this.#getRandomXandYCoords();
           continue; // retry other values
         }
+
+        
         for (let i = 0; i < marker; i++) {
           array.push(this.board[randomCoords[0]][yIndex]);
           yIndex = yIndex + 1;
