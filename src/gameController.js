@@ -22,7 +22,7 @@ function onRandomButtonClick() {
     cpuPlayerShips.forEach(ship => {
         const placementType = cpuPlayer.gameboard.horizontalOrVerticalShipPlacement();
         const validCoord = cpuPlayer.gameboard.calculateValidCoordinates(ship,placementType);
-        cpuPlayer.gameboard.placeShips(ship.length,placementType,validCoord);
+        cpuPlayer.gameboard.placeShips(ship.length, validCoord, placementType);
     });
 
 
