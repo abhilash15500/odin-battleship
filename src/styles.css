@@ -3,25 +3,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 body {
-  
-  background-color: #8d99ae
-
-  
+  background-color: #8d99ae;
 }
 
-
 /* 2b2d42 darker colour for  #8d99ae;*/
-
 
 #battleship-heading {
   text-align: center;
   padding: 3%;
-
 }
 
 #gameboard-container {
@@ -34,7 +27,6 @@ body {
 
 #player-gameboard,
 #cpu-gameboard {
-  
   border: 5px solid black;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -44,21 +36,17 @@ body {
   padding: 1px;
   justify-items: center;
   align-items: center;
-
 }
-
 
 .grid-cells {
   border: 1px solid black;
   width: 96%;
   height: 96%;
-  
-
+  cursor: pointer;
 }
 
 .red {
-  background-color: #D2042D;
-
+  background-color: #d2042d;
 }
 
 .blue {
@@ -66,7 +54,7 @@ body {
 }
 
 #buttons-div {
-  display:  flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   width: 20vw;
@@ -76,13 +64,13 @@ body {
   gap: 10px;
 }
 
-.fa-robot,.fa-user-circle {
-  font-size: 5vw ;/* Adjust size */
-  margin:auto;
- 
+.fa-robot,
+.fa-user-circle {
+  font-size: 5vw; /* Adjust size */
+  margin: auto;
 }
 
-.fa-user-circle  {
+.fa-user-circle {
   margin-left: 5vw;
 }
 

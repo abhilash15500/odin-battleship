@@ -3,5 +3,3 @@ import * as domModule from "./dom.js";
 
 //intialize the app with grid cells
 domModule.onPageLoadDom();
-
-   
