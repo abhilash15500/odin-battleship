@@ -8,6 +8,8 @@ import {
   isCoordInArray,
 } from "./gameController.js";
 
+import { onHitSound ,onVictorySound , onDefeatSound} from "./sound.js";
+
 // DOM SELECTORS
 const playerGameboard = document.querySelector("#player-gameboard");
 const cpuGameboard = document.querySelector("#cpu-gameboard");
@@ -16,11 +18,12 @@ const newGameButton = document.querySelector("#new-game-button")
 
 // EVENT LISTENERS
 
-newGameButton.addEventListener("click",()=>{
+newGameButton.addEventListener("click", () => {
   window.location.reload();
 })
 
 cpuGameboard.addEventListener("click", (event) => {
+
   let clickedElement = event.target;
   let xDatasetValue = clickedElement.dataset.indexX;
   let yDatasetValue = clickedElement.dataset.indexY;
@@ -47,12 +50,14 @@ cpuGameboard.addEventListener("click", (event) => {
       onAttackMissDom(clickedElement);
     } else if (attack === "hit") {
       onAttackHitDom(clickedElement);
+      onHitSound.currentTime = 0;
+      onHitSound.play();
     }
 
     setTimeout(() => {
       afterPlayerMakesMove(realPlayer);
     }, 1000);
-    cpuGameboard.style.pointerEvents  = "auto";
+    cpuGameboard.style.pointerEvents = "auto";
   }
 });
 
@@ -133,14 +138,17 @@ function afterPlayerMakesMove(realPlayer) {
 
   // check if all ships of either realPlayer or cpu are sunk to end the game
   if (realPlayer.gameboard.areAllShipsSunk()) {
-        console.log("Game won by cpu as all ships of realPlayer are sunk")
-        cpuGameboard.style.pointerEvents = "none";
-        playerGameboard.style.pointerEvents = "none";
+    console.log("Game won by cpu as all ships of realPlayer are sunk")
+    cpuGameboard.style.pointerEvents = "none";
+    playerGameboard.style.pointerEvents = "none";
+    onDefeatSound.play();
+   
   }
   else if (cpuPlayer.gameboard.areAllShipsSunk()) {
     console.log("game won by real player as all ships of cpu are sunk");
     cpuGameboard.style.pointerEvents = "none";
     playerGameboard.style.pointerEvents = "none";
+    onVictorySound.play();
   }
 }
 

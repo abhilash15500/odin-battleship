@@ -1,9 +1,22 @@
 /* styles.css */
+
+@font-face {
+  font-family: "Darker";
+  src: url("./assets/fonts/Darker.ttf");
+}
+
+
+@font-face {
+  font-family: "Coffee-extra";
+  src: url("./assets/fonts/Coffee-extra.otf");
+}
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Coffee-extra","Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -17,9 +30,11 @@ h3 {
   /* padding: 10px; */
 }
 #battleship-heading {
+  font-family: "Darker",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   padding: 3%;
   padding: 1vw;
+  font-size: 10vh;
 
 }
 
@@ -30,6 +45,7 @@ h3 {
   gap: 7vw;
   margin: 0px;
 }
+
 
 #player-gameboard,
 #cpu-gameboard {
@@ -56,9 +72,12 @@ h3 {
 }
 
 .blue {
-  background-color: rgb(21, 97, 126);
+  background-color: #1e4b7f;
 }
 
+a {
+  text-decoration: none;
+}
 #buttons-div {
   display: flex;
   flex-direction: row;
@@ -83,7 +102,7 @@ font-weight: 400;
   cursor: pointer;
 }
 
-#random-ships-button:hover, #new-game-button:hover {
+#random-ships-button:hover, #-game-button:hover {
   background-color: white;
   color : #023047;;
   border: 2px solid  #023047;
