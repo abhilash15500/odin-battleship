@@ -11,6 +11,7 @@ While working on this project, I picked up a bunch of cool stuff:
 - Got comfortable writing **tests using Jest**
 - Built the whole thing using the **Test-Driven Development (TDD)** approach
 - Practiced a lot of **DOM manipulation**
+- Learnt how to use audio files in web app when its needed to add interactivity
 - Learned how to organize code using **ES modules** — super helpful for bigger projects
 - Set up and configured **Webpack**, **ESLint**, **Babel**, and **Prettier** (yes, all of them 😅)
 - Used both **Flexbox** and **CSS Grid** for layout (grid for the boards, flex for layout stuff)
