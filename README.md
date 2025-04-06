@@ -2,7 +2,7 @@
 
 ## Live link
 
-[https://abhilash15500.github.io/odin-battleship/](https://abhilash15500.github.io/odin-battleship/)
+Live preview - https://abhilash15500.github.io/odin-battleship/
 
 
 ## Sounds
