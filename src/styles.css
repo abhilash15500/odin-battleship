@@ -11,10 +11,16 @@ body {
 }
 
 /* 2b2d42 darker colour for  #8d99ae;*/
-
+h3 {
+  text-align: center;
+  margin: 15px;
+  /* padding: 10px; */
+}
 #battleship-heading {
   text-align: center;
   padding: 3%;
+  padding: 1vw;
+
 }
 
 #gameboard-container {
@@ -64,6 +70,26 @@ body {
   gap: 10px;
 }
 
+#random-ships-button, #new-game-button {
+  background-color: #023047;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 12vw;
+font-weight: 400;
+  height: 20vh;
+
+  cursor: pointer;
+}
+
+#random-ships-button:hover, #new-game-button:hover {
+  background-color: white;
+  color : #023047;;
+  border: 2px solid  #023047;
+ transition: 300ms;
+}
+
 .fa-robot,
 .fa-user-circle {
   font-size: 5vw; /* Adjust size */
@@ -76,4 +102,59 @@ body {
 
 .fa-robot {
   margin-right: 5vw;
+}
+
+
+#bottom-bar-div {
+  background-color: #023047;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 15vh;
+  margin: 2vh auto;
+  padding: 5px;
+  border :2px solid #023047;
+  border-radius: 5px;
+ 
+  
+}
+
+#how-to-play-div,#buttons-div {
+  margin: 5px;
+  /* border: 2px solid black; */
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1vh;
+}
+
+#how-to-play-div p {
+  display: flex;
+  align-items: center;
+}
+
+#how-to-play-div span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+
+/* Colored span boxes */
+#red-hit {
+  background-color: #C41E3A;
+}
+
+#gray-miss {
+  background-color: #5d6675;
+}
+
+#blue-ship {
+  background-color: #4a90e2;
 }

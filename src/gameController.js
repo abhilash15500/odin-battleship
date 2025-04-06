@@ -41,17 +41,7 @@ function getRandomValidCpuMove(validMovesForCpu) {
   return validMovesForCpu[randomIndex];
 }
 
-// function getValidMovesForCpu(playerBoard) {
-//     const validMovesForCpu = [];   // store the indexes of the valid CPU moves here
-//     playerBoard.forEach((row, indexOfRow) => {
-//         row.forEach((element, index) => {
-//             if (!playerBoard.includes(element)) {
-//                 validMovesForCpu.push([indexOfRow, index]);
-//             }
-//         });
-//     });
-//     return validMovesForCpu;
-// }
+
 
 function getValidMovesForCpu(realPlayer) {
   const validMovesForCpu = []; // store the indexes of the valid CPU moves here

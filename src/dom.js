@@ -12,8 +12,14 @@ import {
 const playerGameboard = document.querySelector("#player-gameboard");
 const cpuGameboard = document.querySelector("#cpu-gameboard");
 const randomShipsButton = document.querySelector("#random-ships-button");
+const newGameButton = document.querySelector("#new-game-button")
 
 // EVENT LISTENERS
+
+newGameButton.addEventListener("click",()=>{
+  window.location.reload();
+})
+
 cpuGameboard.addEventListener("click", (event) => {
   let clickedElement = event.target;
   let xDatasetValue = clickedElement.dataset.indexX;
@@ -45,7 +51,7 @@ cpuGameboard.addEventListener("click", (event) => {
 
     setTimeout(() => {
       afterPlayerMakesMove(realPlayer);
-    }, 2000);
+    }, 1000);
     cpuGameboard.style.pointerEvents  = "auto";
   }
 });
@@ -123,6 +129,18 @@ function afterPlayerMakesMove(realPlayer) {
         cell.style.backgroundColor = "#5d6675";
       }
     });
+  }
+
+  // check if all ships of either realPlayer or cpu are sunk to end the game
+  if (realPlayer.gameboard.areAllShipsSunk()) {
+        console.log("Game won by cpu as all ships of realPlayer are sunk")
+        cpuGameboard.style.pointerEvents = "none";
+        playerGameboard.style.pointerEvents = "none";
+  }
+  else if (cpuPlayer.gameboard.areAllShipsSunk()) {
+    console.log("game won by real player as all ships of cpu are sunk");
+    cpuGameboard.style.pointerEvents = "none";
+    playerGameboard.style.pointerEvents = "none";
   }
 }
 
