@@ -177,3 +177,57 @@ font-weight: 400;
 #blue-ship {
   background-color: #4a90e2;
 }
+
+
+#modal-heading {
+  margin: 10px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 3vw;
+}
+
+#modal-description {
+  padding: 10px;
+  text-align: center;
+  font-size: 1vw;
+}
+
+#modal-button {
+  width: 8vw;
+  height: 6vh;
+  cursor: pointer;
+}
+
+#modal-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+dialog {
+ 
+  border-radius: 15px;
+  padding: 5px;
+  color: white;
+  background-color: #064868;
+  box-shadow: 0 0 10px 500vw rgba(0, 0, 0, 0.6);
+  margin: auto;
+  width: 30vw;
+  height: 25vh;
+}
+
+
+
+#place-ships-text {
+  padding: 5px;
+  text-align: center;
+  color: rgb(195, 23, 23);
+  margin: 4px;
+  font-weight: 600;
+}
+
+
+#place-ships-text-div {
+  height: 3vh;
+}

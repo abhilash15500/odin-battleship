@@ -6,6 +6,7 @@ import {
   getRandomValidCpuMove,
   getValidMovesForCpu,
   isCoordInArray,
+  state,
 } from "./gameController.js";
 
 import { onHitSound ,onVictorySound , onDefeatSound} from "./sound.js";
@@ -14,54 +15,73 @@ import { onHitSound ,onVictorySound , onDefeatSound} from "./sound.js";
 const playerGameboard = document.querySelector("#player-gameboard");
 const cpuGameboard = document.querySelector("#cpu-gameboard");
 const randomShipsButton = document.querySelector("#random-ships-button");
-const newGameButton = document.querySelector("#new-game-button")
+const newGameButton = document.querySelector("#new-game-button");
+const modal = document.querySelector("#modal");
+const modalButton = document.querySelector("#modal-button");
+const modalHeading = document.querySelector("#modal-heading");
+const modalDescription = document.querySelector("#modal-description");
+const placeShipsText = document.querySelector("#place-ships-text");
 
 // EVENT LISTENERS
 
-newGameButton.addEventListener("click", () => {
+
+
+modalButton.addEventListener("click",()=> {
   window.location.reload();
 })
 
+newGameButton.addEventListener("click", () => {
+  window.location.reload();
+ 
+})
+
 cpuGameboard.addEventListener("click", (event) => {
-
-  let clickedElement = event.target;
-  let xDatasetValue = clickedElement.dataset.indexX;
-  let yDatasetValue = clickedElement.dataset.indexY;
-
-  if (
-    clickedElement.classList.contains("grid-cells") &&
-    isCoordInArray(cpuPlayer.gameboard.missedAttacks, [
-      xDatasetValue,
-      yDatasetValue,
-    ]) === false &&
-    isCoordInArray(cpuPlayer.gameboard.hitAttacks, [
-      xDatasetValue,
-      yDatasetValue,
-    ]) === false
-  ) {
-    console.log(clickedElement);
-
-    let attack = cpuPlayer.gameboard.receiveAttack([
-      xDatasetValue,
-      yDatasetValue,
-    ]);
-
-    if (attack === "miss") {
-      onAttackMissDom(clickedElement);
-    } else if (attack === "hit") {
-      onAttackHitDom(clickedElement);
-      onHitSound.currentTime = 0;
-      onHitSound.play();
+  if (state.isRandomButtonClicked) {
+    placeShipsText.textContent  = "";
+    let clickedElement = event.target;
+    let xDatasetValue = clickedElement.dataset.indexX;
+    let yDatasetValue = clickedElement.dataset.indexY;
+  
+    if (
+      clickedElement.classList.contains("grid-cells") &&
+      isCoordInArray(cpuPlayer.gameboard.missedAttacks, [
+        xDatasetValue,
+        yDatasetValue,
+      ]) === false &&
+      isCoordInArray(cpuPlayer.gameboard.hitAttacks, [
+        xDatasetValue,
+        yDatasetValue,
+      ]) === false
+    ) {
+      console.log(clickedElement);
+  
+      let attack = cpuPlayer.gameboard.receiveAttack([
+        xDatasetValue,
+        yDatasetValue,
+      ]);
+  
+      if (attack === "miss") {
+        onAttackMissDom(clickedElement);
+      } else if (attack === "hit") {
+        onAttackHitDom(clickedElement);
+        onHitSound.currentTime = 0;
+        onHitSound.play();
+      }
+  
+      setTimeout(() => {
+        afterPlayerMakesMove(realPlayer);
+      }, 1000);
+      cpuGameboard.style.pointerEvents = "auto";
     }
-
-    setTimeout(() => {
-      afterPlayerMakesMove(realPlayer);
-    }, 1000);
-    cpuGameboard.style.pointerEvents = "auto";
+  }
+  else if (!state.isRandomButtonClicked) {
+      placeShipsText.textContent = "PLEASE PLACE SHIPS BEFORE CLICKING ON THE BOARD!";
   }
 });
 
 randomShipsButton.addEventListener("click", () => {
+  state.isRandomButtonClicked = true;
+  placeShipsText.textContent = "";
   playerGameboard.innerHTML = "";
   cpuGameboard.innerHTML = "";
 
@@ -141,6 +161,10 @@ function afterPlayerMakesMove(realPlayer) {
     console.log("Game won by cpu as all ships of realPlayer are sunk")
     cpuGameboard.style.pointerEvents = "none";
     playerGameboard.style.pointerEvents = "none";
+
+    modalHeading.textContent = "DEFEAT!";
+    modalDescription.textContent = "They sunk all of your ships captain!";
+    modal.showModal();
     onDefeatSound.play();
    
   }
@@ -148,6 +172,10 @@ function afterPlayerMakesMove(realPlayer) {
     console.log("game won by real player as all ships of cpu are sunk");
     cpuGameboard.style.pointerEvents = "none";
     playerGameboard.style.pointerEvents = "none";
+
+    modalHeading.textContent = "VICTORY!";
+    modalDescription.textContent = "You sunk all of their ships captain!";
+    modal.showModal();
     onVictorySound.play();
   }
 }

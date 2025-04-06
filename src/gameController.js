@@ -5,6 +5,12 @@ import { Player } from "./player.js";
 let realPlayer;
 let cpuPlayer;
 
+let state = {
+  isRandomButtonClicked : false,
+};
+
+
+
 function onRandomButtonClick() {
   realPlayer = new Player();
   cpuPlayer = new Player();
@@ -78,4 +84,5 @@ export {
   getRandomValidCpuMove,
   getValidMovesForCpu,
   isCoordInArray,
+  state
 };
