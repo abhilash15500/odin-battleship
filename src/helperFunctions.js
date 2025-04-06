@@ -14,4 +14,9 @@ function createElementFunction(tag, classes = [], attributes = {}) {
   return element;
 }
 
-export { createElementFunction };
+
+function isCoordInArray(arr, coord) {
+  return arr.some((item) => item[0] === coord[0] && item[1] === coord[1]);
+}
+
+export { createElementFunction, isCoordInArray };

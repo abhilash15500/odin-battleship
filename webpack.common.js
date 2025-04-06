@@ -32,9 +32,9 @@ module.exports = {
       },
       {
         test: /\.(mp3|wav)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/sounds/[name][ext]',
+          filename: "assets/sounds/[name][ext]",
         },
       },
     ],

@@ -1,4 +1,5 @@
 import { createElementFunction } from "./helperFunctions.js";
+
 import {
   onRandomButtonClick,
   realPlayer,
@@ -9,7 +10,7 @@ import {
   state,
 } from "./gameController.js";
 
-import { onHitSound ,onVictorySound , onDefeatSound} from "./sound.js";
+import { onHitSound, onVictorySound, onDefeatSound } from "./sound.js";
 
 // DOM SELECTORS
 const playerGameboard = document.querySelector("#player-gameboard");
@@ -24,24 +25,21 @@ const placeShipsText = document.querySelector("#place-ships-text");
 
 // EVENT LISTENERS
 
-
-
-modalButton.addEventListener("click",()=> {
+modalButton.addEventListener("click", () => {
   window.location.reload();
-})
+});
 
 newGameButton.addEventListener("click", () => {
   window.location.reload();
- 
-})
+});
 
 cpuGameboard.addEventListener("click", (event) => {
   if (state.isRandomButtonClicked) {
-    placeShipsText.textContent  = "";
+    placeShipsText.textContent = "";
     let clickedElement = event.target;
     let xDatasetValue = clickedElement.dataset.indexX;
     let yDatasetValue = clickedElement.dataset.indexY;
-  
+
     if (
       clickedElement.classList.contains("grid-cells") &&
       isCoordInArray(cpuPlayer.gameboard.missedAttacks, [
@@ -53,13 +51,14 @@ cpuGameboard.addEventListener("click", (event) => {
         yDatasetValue,
       ]) === false
     ) {
-      console.log(clickedElement);
-  
+
+      cpuGameboard.style.pointerEvents = "none";
+
       let attack = cpuPlayer.gameboard.receiveAttack([
         xDatasetValue,
         yDatasetValue,
       ]);
-  
+
       if (attack === "miss") {
         onAttackMissDom(clickedElement);
       } else if (attack === "hit") {
@@ -67,15 +66,15 @@ cpuGameboard.addEventListener("click", (event) => {
         onHitSound.currentTime = 0;
         onHitSound.play();
       }
-  
+
       setTimeout(() => {
         afterPlayerMakesMove(realPlayer);
-      }, 1000);
-      cpuGameboard.style.pointerEvents = "auto";
+        cpuGameboard.style.pointerEvents = "auto";
+      }, 500);
     }
-  }
-  else if (!state.isRandomButtonClicked) {
-      placeShipsText.textContent = "PLEASE PLACE SHIPS BEFORE CLICKING ON THE BOARD!";
+  } else if (!state.isRandomButtonClicked) {
+    placeShipsText.textContent =
+      "PLEASE PLACE SHIPS BEFORE CLICKING ON THE BOARD!";
   }
 });
 
@@ -117,7 +116,7 @@ randomShipsButton.addEventListener("click", () => {
   });
 });
 
-// DOM MANIPULATION FUNCTIONSX`
+// DOM MANIPULATION FUNCTIONS
 
 function afterPlayerMakesMove(realPlayer) {
   let playerCells = document.querySelectorAll("#player-gameboard .grid-cells");
@@ -128,9 +127,6 @@ function afterPlayerMakesMove(realPlayer) {
     selectedValidMove[0],
     selectedValidMove[1],
   ]);
-  console.log(
-    `im being run and here is my gameboard for real player ${realPlayer.gameboard.board} here are missd attack ${realPlayer.gameboard.missedAttacks}`,
-  );
 
   if (
     realPlayer.gameboard.board[selectedValidMove[0]][selectedValidMove[1]] !== 0
@@ -158,7 +154,7 @@ function afterPlayerMakesMove(realPlayer) {
 
   // check if all ships of either realPlayer or cpu are sunk to end the game
   if (realPlayer.gameboard.areAllShipsSunk()) {
-    console.log("Game won by cpu as all ships of realPlayer are sunk")
+ 
     cpuGameboard.style.pointerEvents = "none";
     playerGameboard.style.pointerEvents = "none";
 
@@ -166,10 +162,7 @@ function afterPlayerMakesMove(realPlayer) {
     modalDescription.textContent = "They sunk all of your ships captain!";
     modal.showModal();
     onDefeatSound.play();
-   
-  }
-  else if (cpuPlayer.gameboard.areAllShipsSunk()) {
-    console.log("game won by real player as all ships of cpu are sunk");
+  } else if (cpuPlayer.gameboard.areAllShipsSunk()) {
     cpuGameboard.style.pointerEvents = "none";
     playerGameboard.style.pointerEvents = "none";
 

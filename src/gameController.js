@@ -1,15 +1,12 @@
-// import { Gameboard } from "./gameboard.js";
-// import { Ship } from "./ship.js";
 import { Player } from "./player.js";
+import { isCoordInArray } from "./helperFunctions.js";
 
 let realPlayer;
 let cpuPlayer;
 
 let state = {
-  isRandomButtonClicked : false,
+  isRandomButtonClicked: false,
 };
-
-
 
 function onRandomButtonClick() {
   realPlayer = new Player();
@@ -40,21 +37,17 @@ function onRandomButtonClick() {
   });
 }
 
-// realPlayer.gameboard.receiveAttack([selectedValidMove[0],selectedValidMove[1]]);
 
 function getRandomValidCpuMove(validMovesForCpu) {
   const randomIndex = Math.floor(Math.random() * validMovesForCpu.length); // pick a random move index
   return validMovesForCpu[randomIndex];
 }
 
-
-
 function getValidMovesForCpu(realPlayer) {
   const validMovesForCpu = []; // store the indexes of the valid CPU moves here
 
   realPlayer.gameboard.board.forEach((row, indexOfRow) => {
     row.forEach((element, index) => {
-      // !isCoordInArray(realPlayer.gameboard.missedAttacks, [indexOfRow, index])
 
       if (
         !isCoordInArray(realPlayer.gameboard.missedAttacks, [
@@ -73,9 +66,6 @@ function getValidMovesForCpu(realPlayer) {
 
 //helper func below
 
-function isCoordInArray(arr, coord) {
-  return arr.some((item) => item[0] === coord[0] && item[1] === coord[1]);
-}
 
 export {
   onRandomButtonClick,
@@ -84,5 +74,5 @@ export {
   getRandomValidCpuMove,
   getValidMovesForCpu,
   isCoordInArray,
-  state
+  state,
 };

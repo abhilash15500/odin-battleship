@@ -1,41 +1,33 @@
-/* styles.css */
-
 @font-face {
   font-family: "Darker";
   src: url("./assets/fonts/Darker.ttf");
 }
-
 
 @font-face {
   font-family: "Coffee-extra";
   src: url("./assets/fonts/Coffee-extra.otf");
 }
 
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Coffee-extra","Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Coffee-extra", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   background-color: #8d99ae;
 }
 
-/* 2b2d42 darker colour for  #8d99ae;*/
 h3 {
   text-align: center;
   margin: 15px;
-  /* padding: 10px; */
 }
-#battleship-heading {
-  font-family: "Darker",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 3%;
-  padding: 1vw;
-  font-size: 10vh;
 
+#battleship-heading {
+  font-family: "Darker", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 11vh;
 }
 
 #gameboard-container {
@@ -45,7 +37,6 @@ h3 {
   gap: 7vw;
   margin: 0px;
 }
-
 
 #player-gameboard,
 #cpu-gameboard {
@@ -77,7 +68,9 @@ h3 {
 
 a {
   text-decoration: none;
+  color: #0000ee;
 }
+
 #buttons-div {
   display: flex;
   flex-direction: row;
@@ -89,29 +82,30 @@ a {
   gap: 10px;
 }
 
-#random-ships-button, #new-game-button {
+#random-ships-button,
+#new-game-button {
   background-color: #023047;
   color: white;
   border: 2px solid white;
   border-radius: 5px;
   padding: 10px;
   width: 12vw;
-font-weight: 400;
+  font-weight: 400;
   height: 20vh;
-
   cursor: pointer;
 }
 
-#random-ships-button:hover, #-game-button:hover {
+#random-ships-button:hover,
+#new-game-button:hover {
   background-color: white;
-  color : #023047;;
-  border: 2px solid  #023047;
- transition: 300ms;
+  color: #023047;
+  border: 2px solid #023047;
+  transition: 300ms;
 }
 
 .fa-robot,
 .fa-user-circle {
-  font-size: 5vw; /* Adjust size */
+  font-size: 5vw;
   margin: auto;
 }
 
@@ -122,7 +116,6 @@ font-weight: 400;
 .fa-robot {
   margin-right: 5vw;
 }
-
 
 #bottom-bar-div {
   background-color: #023047;
@@ -135,15 +128,13 @@ font-weight: 400;
   height: 15vh;
   margin: 2vh auto;
   padding: 5px;
-  border :2px solid #023047;
+  border: 2px solid #023047;
   border-radius: 5px;
- 
-  
 }
 
-#how-to-play-div,#buttons-div {
+#how-to-play-div,
+#buttons-div {
   margin: 5px;
-  /* border: 2px solid black; */
   width: 30vw;
   display: flex;
   flex-direction: column;
@@ -164,10 +155,8 @@ font-weight: 400;
   margin-right: 10px;
 }
 
-
-/* Colored span boxes */
 #red-hit {
-  background-color: #C41E3A;
+  background-color: #c41e3a;
 }
 
 #gray-miss {
@@ -177,7 +166,6 @@ font-weight: 400;
 #blue-ship {
   background-color: #4a90e2;
 }
-
 
 #modal-heading {
   margin: 10px;
@@ -206,7 +194,6 @@ font-weight: 400;
 }
 
 dialog {
- 
   border-radius: 15px;
   padding: 5px;
   color: white;
@@ -217,8 +204,6 @@ dialog {
   height: 25vh;
 }
 
-
-
 #place-ships-text {
   padding: 5px;
   text-align: center;
@@ -227,7 +212,7 @@ dialog {
   font-weight: 600;
 }
 
-
 #place-ships-text-div {
   height: 3vh;
 }
+
