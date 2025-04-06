@@ -1,8 +1,25 @@
 # odin-battleship
 
-## Live link
+## Deployed site
 
-Live preview - https://abhilash15500.github.io/odin-battleship/
+Live preview - https://abhilash15500.github.io/odin-battleship
+
+## Learnings
+
+While working on this project, I picked up a bunch of cool stuff:
+
+- Got comfortable writing **tests using Jest**
+- Built the whole thing using the **Test-Driven Development (TDD)** approach
+- Practiced a lot of **DOM manipulation**
+- Learned how to organize code using **ES modules** — super helpful for bigger projects
+- Set up and configured **Webpack**, **ESLint**, **Babel**, and **Prettier** (yes, all of them 😅)
+- Used both **Flexbox** and **CSS Grid** for layout (grid for the boards, flex for layout stuff)
+- Managed basic **game state** across turns and events
+- Focused on trying to write **clean, readable code** that’s easy to follow
+- Got better at handling events to make the game interactive
+
+
+It was a solid experience and helped me level up a bunch!
 
 
 ## Sounds
@@ -33,20 +50,3 @@ Live preview - https://abhilash15500.github.io/odin-battleship/
   by [Freepik](https://www.flaticon.com/authors/freepik)
 
 ---
-
-## Learnings
-
-While working on this project, I picked up a bunch of cool stuff:
-
-- Got comfortable writing **tests using Jest**
-- Built the whole thing using the **Test-Driven Development (TDD)** approach
-- Practiced a lot of **DOM manipulation**
-- Learned how to organize code using **ES modules** — super helpful for bigger projects
-- Set up and configured **Webpack**, **ESLint**, **Babel**, and **Prettier** (yes, all of them 😅)
-- Used both **Flexbox** and **CSS Grid** for layout (grid for the boards, flex for layout stuff)
-- Managed basic **game state** across turns and events
-- Focused on trying to write **clean, readable code** that’s easy to follow
-- Got better at handling events to make the game interactive
-
-
-It was a solid experience and helped me level up a bunch!
