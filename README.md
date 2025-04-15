@@ -2,7 +2,7 @@
 
 ## Deployed site
 
-Live preview - https://abhilash15500.github.io/odin-battleship
+Live preview - https://xplozion15.github.io/odin-battleship
 
 ## Learnings
 
